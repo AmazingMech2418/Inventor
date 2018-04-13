@@ -1,4 +1,18 @@
-  var apiLib = {
+ var filename = "UNTITLED.txt";
+var download = function(p1,p2) {
+  var el = document.createElement("A");
+  el.setAttribute("href","data:application,"+p1);
+  el.setAttribute("download",p2);    
+  if (document.createEvent) {
+      var event = document.createEvent('MouseEvents');
+      event.initEvent('click', true, true);
+      el.dispatchEvent(event);
+    }
+  else {
+      el.click();
+    }
+};
+var apiLib = {
     get: function (site,callback) {
         var xhttp = new XMLHttpRequest();
         xhttp.open('GET', site, true);
@@ -41,6 +55,8 @@ var z = split(line," ");
   } else if (z[0]==="REQUIRE") {
     continuelol=false;
 apiLib.get(z[1],function(data){readline(data);continuelol=true;});
+  } else if (z[0]==="FILE") {
+    filename = z[1];
   } else if (z[0]==="CPL") {
              compiler=z[1];
              } else if (compiler) {
@@ -60,6 +76,7 @@ apiLib.get(z[1],function(data){readline(data);continuelol=true;});
                         }
              
 }
+
 function readOverall(code) {
 var lines = code.split("|");
   var linecount = 0;
@@ -69,4 +86,5 @@ var lines = code.split("|");
     linecount++;
   }
   }
+  download(final,filename);
 }
