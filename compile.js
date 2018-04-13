@@ -61,7 +61,7 @@ apiLib.get(z[1],function(data){readline(data);continuelol=true;});
              
 }
 function readOverall(code) {
-var lines = code.split(nl);
+var lines = code.split("|");
   var linecount = 0;
   while(linecount<lines.length) {
   if(continuelol) {
