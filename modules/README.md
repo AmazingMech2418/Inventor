@@ -1,0 +1,1 @@
+To create a module, just type `NEW NAME <MODULE NAME> <LANGUAGE1> <CODE FOR LANG> <LANGUAGE2> <CODE FOR LANG>...` into a .txt or .inv file and in your program, type `REQUIRE modules/<MODULE FILE NAME>` to run. Also, fork and get your own modules in the Inventor main release for download.
