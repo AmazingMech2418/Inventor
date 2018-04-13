@@ -1,3 +1,11 @@
+  var apiLib = {
+    get: function (site,callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', site, true);
+        xhttp.send();
+    }
+};
+var continuelol = true;
 var final = "";
 var nl = `
 `;
@@ -30,6 +38,9 @@ var z = split(line," ");
   if (z[0]==="NEW") {
   // Create Module
     module(z);
+  } else if (z[0]==="REQUIRE") {
+    continuelol=false;
+apiLib.get(z[1],function(data){readline(data);continuelol=true;});
   } else if (z[0]==="CPL") {
              compiler=z[1];
              } else if (compiler) {
