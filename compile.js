@@ -56,7 +56,17 @@ apiLib.get(z[1],function(data){readline(data);continuelol=true;});
                next=next.replace("ARG7",z[7]);
                next=next.replace("ARG8",z[8]);
                next=next.replace("ARG9",z[9]);
-               final += next;
+               final += next+nl;
                         }
              
+}
+function readOverall(code) {
+var lines = code.split(nl);
+  var linecount = 0;
+  while(linecount<lines.length) {
+  if(continuelol) {
+  readline(lines[linecount]);
+    linecount++;
+  }
+  }
 }
