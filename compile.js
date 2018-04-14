@@ -80,11 +80,15 @@ apiLib.get(z[1],function(data){readline(data);continuelol=true;});
 function readOverall(code) {
 var lines = code.split("|");
   var linecount = 0;
-  while(linecount<lines.length) {
+  setInterval(function() {
+  if (!(linecount<lines.length)) {
+     download(final,filename);
+   clearInterval(this);
+  }
   if(continuelol) {
   readline(lines[linecount]);
     linecount++;
   }
-  }
-  download(final,filename);
+  },10);
+
 }
